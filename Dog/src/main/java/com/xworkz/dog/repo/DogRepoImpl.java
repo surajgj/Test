@@ -54,4 +54,34 @@ public class DogRepoImpl implements DogRepo {
 		return null;
 	}
 
+	@Override
+	public boolean updateTypebyID(String breadType, int id) {
+		if(emf != null) {
+			EntityManager em = emf.createEntityManager();
+			em.getTransaction().begin();
+			Query query = em.createNamedQuery("updateTypeById");
+			query.setParameter("id", id);
+			query.setParameter("type", breadType);
+			query.executeUpdate();
+			em.getTransaction().commit();
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteByColorAndAge(String color, int age) {
+		if(emf != null) {
+			EntityManager em = emf.createEntityManager();
+			em.getTransaction().begin();
+			Query query = em.createNamedQuery("deleteByColorAndAge");
+			query.setParameter("color", color);
+			query.setParameter("age", age);
+			query.executeUpdate();
+			em.getTransaction().commit();
+			return true;
+		}
+		return false;
+	}
+
 }

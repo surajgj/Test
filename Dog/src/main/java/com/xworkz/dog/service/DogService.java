@@ -14,5 +14,9 @@ public interface DogService {
 	public DogEntity findById(int id);
 	
 	public List<DogEntity> readAll();
+	
+	public boolean updateTypebyID(String breadType, int id);
+
+	boolean deleteByColorAndAge(String color, int age);
 
 }

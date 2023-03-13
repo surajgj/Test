@@ -13,6 +13,8 @@ import javax.persistence.Table;
 @Table(name = "dog_data")
 @NamedQuery(name = "findById", query = "Select entity from DogEntity entity where entity.id =: id ")
 @NamedQuery(name = "readAll", query = "Select entity from DogEntity entity")
+@NamedQuery(name = "updateTypeById", query = "update DogEntity ent set ent.breadType=:type Where ent.id=:id")
+@NamedQuery(name = "deleteByColorAndAge", query = "Delete from DogEntity ent where ent.color=:color and ent.age=:age")
 public class DogEntity {
 
 	@Id

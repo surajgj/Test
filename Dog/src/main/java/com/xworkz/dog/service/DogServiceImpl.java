@@ -23,8 +23,8 @@ public class DogServiceImpl implements DogService {
 			DogEntity entity = new DogEntity();
 			BeanUtils.copyProperties(dto, entity);
 			
-			System.out.println(dto);
-			System.out.println(entity);
+//			System.out.println(dto);
+//			System.out.println(entity);
 			boolean status = repo.save(entity);
 			if(status) {
 				return true;
@@ -46,4 +46,19 @@ public class DogServiceImpl implements DogService {
 		return repo.readAll();
 	}
 
+	@Override
+	public boolean updateTypebyID(String breadType, int id) {
+		if(id > 0 && breadType != null) {
+			return repo.updateTypebyID(breadType,id);
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteByColorAndAge(String color, int age) {
+		if(color != null && age > 1) {
+			return repo.deleteByColorAndAge(color,age);
+		}
+		return false;
+	}
 }

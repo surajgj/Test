@@ -12,4 +12,8 @@ public interface DogRepo {
 
 	public List<DogEntity> readAll();
 
+	public boolean updateTypebyID(String breadType, int id);
+
+	public boolean deleteByColorAndAge(String color, int age);
+
 }

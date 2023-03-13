@@ -15,5 +15,6 @@
 			<button type="submit">Search</button>
 		</div>
 	</form>
+	<h1>${Result1}</h1>
 </body>
 </html>

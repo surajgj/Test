@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body >
-	<h1>${Error}</h1>
-	<h1>Here is your Data</h1>
+	<h1>${Result2}</h1>
 	<table >
 	<c:forEach var="allData" items="${AllData}">
 		<tr style="text-align: center;">
@@ -22,5 +21,13 @@
 		</tr>
 	</c:forEach>
 	</table>
+	
+	<br> <br>
+	
+	If you want To Edit / Update or Delete the Data Click bellow Button
+	<div> <a href="Fifth.jsp"> <button type="button">Make Changes...!..?</button> </a> </div>
+	
+	
+	
 </body>
 </html>

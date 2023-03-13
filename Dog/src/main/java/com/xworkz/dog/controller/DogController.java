@@ -34,11 +34,11 @@ public class DogController {
 	public String onFind(int id, Model model) {
 		DogEntity data = service.findById(id);
 		if(data != null) {
-			model.addAttribute("Result", "Here is Your Data");
+			model.addAttribute("Result1", "Here is Your Data");
 			model.addAttribute("Data", data);
 			return "Third";
 		}
-		model.addAttribute("Result", "Please Check Your Input");
+		model.addAttribute("Result1", "Please Check Your Input");
 		return "Second";	
 	}
 	
@@ -46,11 +46,33 @@ public class DogController {
 	public String onRead(Model model) {
 		List<DogEntity> entity = service.readAll();
 		if(entity != null) {
+			model.addAttribute("Result2", "Here is your Data");
 			model.addAttribute("AllData", entity);
 			return "Fourth";
 		}
-		model.addAttribute("Error", "Your Data is Null");
-		return "Fourth";
+		model.addAttribute("Result2", "Your Data is Null");
+		return "Third";
 	}
 	
+	@RequestMapping("/update")
+	public String onUpdate(Model model, int id, String type) {
+		boolean result = service.updateTypebyID(type, id);
+		if(result) {
+			model.addAttribute("Result3", "Update is Sucessfully");
+			return "Fifth";
+		}
+		model.addAttribute("Result3", "Your Data is not updated");
+		return "Fifth";
+	}
+	
+	@RequestMapping("/delete")
+	public String onDelete(String color, int age, Model model) {
+		boolean status = service.deleteByColorAndAge(color, age);
+		if(status) {
+			model.addAttribute("Result4", "Entered "+ color+" "+ age+ " is sucessfully Deleted from Database");
+			return "Fifth";
+		}
+		model.addAttribute("Result4", "There is no matching found for data you entered");
+		return "Fifth";
+	}
 }
